@@ -1,8 +1,10 @@
+import Employee from "pages/Employee/Employee";
 import type { RoutePage } from "./types";
-import Home from "pages/Home/Home";
+import EmployeeForm from "pages/EmployeeForm/EmployeeForm";
 import PageNotFound from "pages/PageNotFound/PageNotFound";
 
 export const routesData: RoutePage[] = [
-    { path: "/", element: <Home /> },
+    { path: "/", element: <EmployeeForm /> },
+    { path: "/employee", element: <Employee /> },
     { path: "*", element: <PageNotFound /> },
 ];
