@@ -1,28 +1,30 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-export const EmployeeFormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 600px;
-  height: fit-content;
-  padding: 60px;
-  border: 2px solid;
-  border-radius: 4px;
-  background-color: white;
+const boxBasicStyles = css`
+    display: flex;
+    flex-direction: column;
 `;
 
-export const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
+export const EmployeeFormWrapper= styled.div`
+display: flex;
+flex: 1;
+justify-content: center;
+align-items: flex-start;
 `;
 
-export const Checkbox = styled.input`
-  width: 24px;
-  height: 24px;
+export const EmployeeFormComponent = styled.form`
+    ${boxBasicStyles}
+    gap: 30px;
+    width: 100%;
+    max-width: 590px;
+    padding: 60px;
+    background: #fff;
+    border: 1px solid rgba(8, 23, 56, 1);
+    border-radius: 4px;
 `;
 
-export const CheckboxLabel = styled.label`
-  font-size: 20px;
-`;
+export const LabelComponent=styled.label`
+font-family: "Lato", sans-serif;
+font-size: 16px;
+`

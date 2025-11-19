@@ -1,6 +1,6 @@
-export interface EmployeeFormValues {
-  fullName: string;
+export interface EmploeeFormValues {
+  name: string;
+  surname: string;
   age: string;
-  jobTitle: string;
-  agreement: boolean;
+  jobPosition: string;
 }
