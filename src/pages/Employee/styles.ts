@@ -24,7 +24,7 @@ export const EmployeeBlock = styled.div`
 export const EmployeeGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 `;
 
 export const Label = styled.div`
