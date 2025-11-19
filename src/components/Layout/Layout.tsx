@@ -3,13 +3,11 @@ import {
     LayoutComponent,
     Header,
     Main,
-    Footer,
     Logo,
     NavContainer,
     HeaderLogoWrapper,
 } from "./styles";
 import type { LayoutProps, NavLink } from "./types";
-import Button from "components/Button/Button";
 import { navLinksData } from "./data";
 import NavigationLink from "components/NavigationLink/NavigationLink";
 import { v4 } from "uuid";
@@ -21,27 +19,20 @@ function Layout({ children }: LayoutProps) {
         return <NavigationLink key={v4()} path={path} name={name} />;
     });
 
-    const goToAboutPage = () => {
+    const goToHomePage = () => {
         navigate("/");
     };
 
-    const goToPreviousPage = () => {
-        navigate(-1);
-    };
 
     return (
         <LayoutComponent>
             <Header>
                 <HeaderLogoWrapper>
-                    <Logo onClick={goToAboutPage}></Logo>
-                    <Button name="<" onClick={goToPreviousPage} />
+                    <Logo onClick={goToHomePage}> App Logo</Logo>
                 </HeaderLogoWrapper>
                 <NavContainer>{navLinks}</NavContainer>
             </Header>
             <Main>{children}</Main>
-            <Footer>
-                <Logo onClick={goToAboutPage}></Logo>
-            </Footer>
         </LayoutComponent>
     );
 }
