@@ -1,3 +1,4 @@
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     LayoutComponent,
@@ -7,12 +8,26 @@ import {
     NavContainer,
     HeaderLogoWrapper,
 } from "./styles";
-import type { LayoutProps, NavLink } from "./types";
+import type {
+    LayoutProps,
+    NavLink,
+    EmployeeContextType,
+    EmployeeData,
+} from "./types";
 import { navLinksData } from "./data";
 import NavigationLink from "components/NavigationLink/NavigationLink";
 import { v4 } from "uuid";
 
+export const EmployeeContext = createContext<EmployeeContextType>({
+    data: undefined,
+    onDataChange: () => {},
+});
+
 function Layout({ children }: LayoutProps) {
+    const [employeeData, setEmployeeData] = useState<EmployeeData | undefined>(
+        undefined
+    );
+
     const navigate = useNavigate();
 
     const navLinks = navLinksData.map(({ path, name }: NavLink) => {
@@ -23,7 +38,6 @@ function Layout({ children }: LayoutProps) {
         navigate("/");
     };
 
-
     return (
         <LayoutComponent>
             <Header>
@@ -32,7 +46,14 @@ function Layout({ children }: LayoutProps) {
                 </HeaderLogoWrapper>
                 <NavContainer>{navLinks}</NavContainer>
             </Header>
-            <Main>{children}</Main>
+            <EmployeeContext.Provider
+                value={{
+                    data: employeeData,
+                    onDataChange: setEmployeeData,
+                }}
+            >
+                <Main>{children}</Main>
+            </EmployeeContext.Provider>
         </LayoutComponent>
     );
 }

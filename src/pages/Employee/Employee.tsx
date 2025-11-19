@@ -1,24 +1,27 @@
+import { useContext } from "react";
+import { EmployeeContext } from "components/Layout/Layout";
 import {EmployeeBlock, EmployeeWrapper,  EmployeeGroup, Label, ValueBlock } from "./styles";
 
 function Employee() {
+    const { data, onDataChange } = useContext(EmployeeContext);
     return(
         <EmployeeWrapper>
             <EmployeeBlock>
                 <EmployeeGroup>
                     <Label>Name</Label>
-                    <ValueBlock>Will</ValueBlock>
+                    <ValueBlock>{data?.name}</ValueBlock>
                 </EmployeeGroup>
                 <EmployeeGroup>
                     <Label>Surname</Label>
-                    <ValueBlock>Smead</ValueBlock>
+                    <ValueBlock>{data?.surname}</ValueBlock>
                 </EmployeeGroup>
                 <EmployeeGroup>
                     <Label>Age</Label>
-                    <ValueBlock>45</ValueBlock>
+                    <ValueBlock>{data?.age}</ValueBlock>
                 </EmployeeGroup>
                 <EmployeeGroup>
                     <Label>Job Position</Label>
-                    <ValueBlock>Actor</ValueBlock>
+                    <ValueBlock>{data?.jobPosition}</ValueBlock>
                 </EmployeeGroup>
             </EmployeeBlock>
         </EmployeeWrapper>

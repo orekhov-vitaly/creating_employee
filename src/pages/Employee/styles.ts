@@ -11,14 +11,14 @@ export const EmployeeWrapper = styled.div`
 
 export const EmployeeBlock = styled.div`
   background: white;
-  padding: 40px;
-  width: 400px;
-  border-radius: 6px;
+  padding: 60px;
+  width: 590px;
+  border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 30px;
 `;
 
 export const EmployeeGroup = styled.div`
@@ -28,8 +28,8 @@ export const EmployeeGroup = styled.div`
 `;
 
 export const Label = styled.div`
-  font-size: 12px;
-  color: #888;
+  font-size: 16px;
+  color: #6f6f6f;
 `;
 
 export const ValueBlock = styled.div`
